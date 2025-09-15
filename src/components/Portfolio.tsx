@@ -20,7 +20,7 @@ const Portfolio = () => {
       icon: BarChart3,
       tags: ["Power BI", "Análisis Predictivo", "KPIs"],
       mediaType: "video",
-      link: "https://youtu.be/bHa40hZXc_A", // abre el video en YouTube
+      link: "https://youtu.be/bXbxPQKuZKg", // abre el video en YouTube
       cta: "Ver video",
       results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
       color: "from-orange-500 to-orange-600"
@@ -33,7 +33,8 @@ const Portfolio = () => {
       icon: TrendingUp,
       tags: ["Excel", "Análisis de Ventas", "Forecasting", "Power BI", "Análisis Predictivo", "KPIs"],
       mediaType: "video",
-      filePath: "/public/videos/ventas.mp4", // archivo local
+      link: "https://youtu.be/xvKjF9lejcc", // abre el video en YouTube
+      cta: "Ver video",
       results: ["$122,000 en ventas analizadas", "12.5% crecimiento", "Identificación canal emergente"],
       color: "from-blue-500 to-blue-600"
     },
