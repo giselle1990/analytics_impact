@@ -14,17 +14,17 @@ import {
 const Portfolio = () => {
   const projects = [
     {
-  title: "Análisis de Servicios de Baterías",
-  description: "Dashboard completo para monitoreo de servicios de baterías con análisis de temperatura, demanda y KPIs operacionales.",
-  type: "Dashboard",
-  icon: BarChart3,
-  tags: ["Power BI", "Análisis Predictivo", "KPIs"],
-  mediaType: "video",
-  link: "https://youtu.be/bHa40hZXc_A", // <-- abre el video al apretar
-  cta: "Ver video", // <-- texto del botón
-  results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
-  color: "from-orange-500 to-orange-600"
-}
+      title: "Análisis de Servicios de Baterías",
+      description: "Dashboard completo para monitoreo de servicios de baterías con análisis de temperatura, demanda y KPIs operacionales.",
+      type: "Dashboard",
+      icon: BarChart3,
+      tags: ["Power BI", "Análisis Predictivo", "KPIs"],
+      mediaType: "video",
+      link: "https://youtu.be/bHa40hZXc_A", // abre el video en YouTube
+      cta: "Ver video",
+      results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
+      color: "from-orange-500 to-orange-600"
+    }, // 👈 coma corregida
 
     {
       title: "Proyecto Comercial - Ventas",
@@ -33,10 +33,11 @@ const Portfolio = () => {
       icon: TrendingUp,
       tags: ["Excel", "Análisis de Ventas", "Forecasting", "Power BI", "Análisis Predictivo", "KPIs"],
       mediaType: "video",
-      filePath: "/public/videos/ventas.mp4",
+      filePath: "/public/videos/ventas.mp4", // archivo local
       results: ["$122,000 en ventas analizadas", "12.5% crecimiento", "Identificación canal emergente"],
       color: "from-blue-500 to-blue-600"
     },
+
     {
       title: "Dashboard Electoral - Afiliados",
       description: "Sistema de análisis político con visualización de afiliados por comuna y tendencias de crecimiento.",
@@ -44,11 +45,11 @@ const Portfolio = () => {
       icon: PieChart,
       tags: ["Tableau", "Análisis Geográfico", "Segmentación"],
       mediaType: "video",
-      link: "https://youtu.be/bHa40hZXc_A", // <-- abre el video al apretar
-  cta: "Ver video", // <-- texto del botón
-  results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
-  color: "from-orange-500 to-orange-600"
-}
+      link: "https://youtu.be/bHa40hZXc_A", // abre el video en YouTube
+      cta: "Ver video",
+      results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
+      color: "from-orange-500 to-orange-600"
+    }
   ];
 
   const getMediaIcon = (type: string) => {
@@ -62,8 +63,9 @@ const Portfolio = () => {
     }
   };
 
-  const getMediaButton = (type: string) => {
-    switch (type) {
+  const getMediaButton = (project: any) => {
+    if (project.cta) return project.cta;
+    switch (project.mediaType) {
       case 'video':
         return "Ver Video";
       case 'pdf':
@@ -74,20 +76,13 @@ const Portfolio = () => {
   };
 
   const handleMediaClick = (project: any) => {
-    if (project.mediaType === 'video') {
-      // Open video in new tab
-      window.open(project.filePath, '_blank');
-    } else if (project.mediaType === 'pdf') {
-      // Open PDF in new tab for viewing
-      window.open(project.filePath, '_blank');
-    } else {
-      // Open image in new tab
-      window.open(project.filePath, '_blank');
+    const url = project.link || project.filePath;
+    if (url) {
+      window.open(url, "_blank");
     }
   };
 
   const handleDownload = (filePath: string, fileName: string) => {
-    // Create download link
     const link = document.createElement('a');
     link.href = filePath;
     link.download = fileName;
@@ -165,7 +160,7 @@ const Portfolio = () => {
                     className="flex-1 group/btn"
                     onClick={() => handleMediaClick(project)}
                   >
-                    {getMediaButton(project.mediaType)}
+                    {getMediaButton(project)}
                     <span className="ml-2 group-hover/btn:translate-x-1 transition-transform">
                       {getMediaIcon(project.mediaType)}
                     </span>
