@@ -21,7 +21,7 @@ const Contact = () => {
       icon: Mail,
       title: "Email Profesional",
       description: "Respuesta en menos de 24 horas",
-      value: "analista@tuemail.com",
+      value: "giselle.san@istea.com.ar",
       action: "Enviar Email",
       color: "from-orange-500 to-orange-600"
     },
@@ -29,7 +29,7 @@ const Contact = () => {
       icon: Phone,
       title: "Llamada Directa",
       description: "Horario comercial disponible",
-      value: "+1 (555) 123-4567",
+      value: "+541167641220",
       action: "Llamar Ahora",
       color: "from-blue-500 to-blue-600"
     },
@@ -38,14 +38,14 @@ const Contact = () => {
       title: "LinkedIn",
       description: "Red profesional y referencias",
       value: "linkedin.com/in/analista-datos",
-      action: "Ver Perfil",
+      action: "https://www.linkedin.com/in/giselle-san-german-abogada-esp-pol%C3%ADticas-soc-urbanas-untref-86765174/",
       color: "from-purple-500 to-purple-600"
     },
     {
       icon: MessageCircle,
       title: "WhatsApp Business",
       description: "Comunicación instantánea",
-      value: "+1 (555) 123-4567",
+      value: "+541167641220",
       action: "Chatear",
       color: "from-green-500 to-green-600"
     }
@@ -212,23 +212,28 @@ const Contact = () => {
             </Card>
 
             <Card className="border-orange-100 bg-gradient-to-br from-white to-orange-50">
-              <CardContent className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  <FileText className="w-5 h-5 text-orange-500" />
-                  <h4 className="font-semibold text-dark-900">Recursos Disponibles</h4>
-                </div>
-                <div className="space-y-3">
-                  <Button variant="outline" className="w-full justify-start">
-                    <FileText className="w-4 h-4 mr-2" />
-                    Descargar Portafolio (PDF)
-                  </Button>
-                  <Button variant="outline" className="w-full justify-start">
-                    <FileText className="w-4 h-4 mr-2" />
-                    Guía de Servicios (PDF)
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+  <CardContent className="p-6">
+    <div className="flex items-center space-x-3 mb-4">
+      <FileText className="w-5 h-5 text-orange-500" />
+      <h4 className="font-semibold text-dark-900">Recursos Disponibles</h4>
+    </div>
+    <div className="space-y-3">
+      {/* Botón para descargar Portafolio */}
+      <a
+        href="/pdfs/porfolio.pdf"
+        download
+        className="flex items-center w-full px-3 py-2 border rounded-md hover:bg-orange-50 text-sm font-medium text-gray-700 border-orange-200"
+      >
+        <FileText className="w-4 h-4 mr-2 text-orange-500" />
+        Descargar Portafolio (PDF)
+      </a>
+
+      {/* Botón para descargar Guía de Servicios */}
+      
+    </div>
+  </CardContent>
+</Card>
+
           </div>
         </div>
       </div>

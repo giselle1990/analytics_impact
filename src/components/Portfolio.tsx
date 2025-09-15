@@ -19,7 +19,8 @@ const Portfolio = () => {
       type: "Dashboard",
       icon: BarChart3,
       tags: ["Power BI", "Análisis Predictivo", "KPIs"],
-      mediaType: "image",
+      mediaType: "video",
+      filePath: "/public/videos/bateria.mp4",
       results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
       color: "from-orange-500 to-orange-600"
     },
@@ -28,8 +29,9 @@ const Portfolio = () => {
       description: "Análisis completo de canales de venta con evaluación de rendimiento y recomendaciones estratégicas.",
       type: "Reporte Ejecutivo",
       icon: TrendingUp,
-      tags: ["Excel", "Análisis de Ventas", "Forecasting"],
-      mediaType: "pdf",
+      tags: ["Excel", "Análisis de Ventas", "Forecasting", "Power BI", "Análisis Predictivo", "KPIs"],
+      mediaType: "video",
+      filePath: "/public/videos/ventas.mp4",
       results: ["$122,000 en ventas analizadas", "12.5% crecimiento", "Identificación canal emergente"],
       color: "from-blue-500 to-blue-600"
     },
@@ -40,19 +42,10 @@ const Portfolio = () => {
       icon: PieChart,
       tags: ["Tableau", "Análisis Geográfico", "Segmentación"],
       mediaType: "video",
+      filePath: "/public/videos/afiliados.mp4",
       results: ["2,516 afiliados analizados", "Mayor penetración Comuna 1 y 2", "4.2% crecimiento mensual"],
       color: "from-purple-500 to-purple-600"
     },
-    {
-      title: "Industria de Videojuegos - Ventas",
-      description: "Análisis histórico de ventas por categoría, región y plataforma con insights para decisiones comerciales.",
-      type: "Business Intelligence",
-      icon: BarChart3,
-      tags: ["Python", "Data Mining", "Visualización"],
-      mediaType: "image",
-      results: ["8,815.58M en ventas totales", "Identificación tendencias regionales", "Análisis por género y plataforma"],
-      color: "from-green-500 to-green-600"
-    }
   ];
 
   const getMediaIcon = (type: string) => {
@@ -75,6 +68,29 @@ const Portfolio = () => {
       default:
         return "Ver Proyecto";
     }
+  };
+
+  const handleMediaClick = (project: any) => {
+    if (project.mediaType === 'video') {
+      // Open video in new tab
+      window.open(project.filePath, '_blank');
+    } else if (project.mediaType === 'pdf') {
+      // Open PDF in new tab for viewing
+      window.open(project.filePath, '_blank');
+    } else {
+      // Open image in new tab
+      window.open(project.filePath, '_blank');
+    }
+  };
+
+  const handleDownload = (filePath: string, fileName: string) => {
+    // Create download link
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.download = fileName;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -144,6 +160,7 @@ const Portfolio = () => {
                     variant="orange" 
                     size="sm" 
                     className="flex-1 group/btn"
+                    onClick={() => handleMediaClick(project)}
                   >
                     {getMediaButton(project.mediaType)}
                     <span className="ml-2 group-hover/btn:translate-x-1 transition-transform">
@@ -151,7 +168,11 @@ const Portfolio = () => {
                     </span>
                   </Button>
                   {project.mediaType === 'pdf' && (
-                    <Button variant="outline" size="sm">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => handleDownload(project.filePath, `${project.title}.pdf`)}
+                    >
                       <Download className="w-4 h-4" />
                     </Button>
                   )}
