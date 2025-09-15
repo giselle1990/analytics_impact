@@ -14,16 +14,18 @@ import {
 const Portfolio = () => {
   const projects = [
     {
-      title: "Análisis de Servicios de Baterías",
-      description: "Dashboard completo para monitoreo de servicios de baterías con análisis de temperatura, demanda y KPIs operacionales.",
-      type: "Dashboard",
-      icon: BarChart3,
-      tags: ["Power BI", "Análisis Predictivo", "KPIs"],
-      mediaType: "video",
-      filePath: "/public/videos/bateria.mp4",
-      results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
-      color: "from-orange-500 to-orange-600"
-    },
+  title: "Análisis de Servicios de Baterías",
+  description: "Dashboard completo para monitoreo de servicios de baterías con análisis de temperatura, demanda y KPIs operacionales.",
+  type: "Dashboard",
+  icon: BarChart3,
+  tags: ["Power BI", "Análisis Predictivo", "KPIs"],
+  mediaType: "video",
+  link: "https://youtu.be/bHa40hZXc_A", // <-- abre el video al apretar
+  cta: "Ver video", // <-- texto del botón
+  results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
+  color: "from-orange-500 to-orange-600"
+}
+
     {
       title: "Proyecto Comercial - Ventas",
       description: "Análisis completo de canales de venta con evaluación de rendimiento y recomendaciones estratégicas.",
