@@ -44,10 +44,11 @@ const Portfolio = () => {
       icon: PieChart,
       tags: ["Tableau", "Análisis Geográfico", "Segmentación"],
       mediaType: "video",
-      filePath: "/public/videos/afiliados.mp4",
-      results: ["2,516 afiliados analizados", "Mayor penetración Comuna 1 y 2", "4.2% crecimiento mensual"],
-      color: "from-purple-500 to-purple-600"
-    },
+      link: "https://youtu.be/bHa40hZXc_A", // <-- abre el video al apretar
+  cta: "Ver video", // <-- texto del botón
+  results: ["Reducción 20% en fallas", "Optimización de rutas", "ROI del 250%"],
+  color: "from-orange-500 to-orange-600"
+}
   ];
 
   const getMediaIcon = (type: string) => {
